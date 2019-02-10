@@ -9,37 +9,38 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    <!-- Extra scripts -->
+    {% block scripts %}{% endblock %}
     <title>{% block titlebar %}{% endblock %}</title>
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DuoVocab</a>
-      <input class="form-control form-control-dark w-100 ml-4 mr-4" type="text" placeholder="Search" aria-label="Search">
-      <ul class="navbar-nav px-3">
+      <a class="navbar-brand col-3 mr-0" href="#">DuoVocab</a>
+      <form class="bd-search d-flex align-items-center" method="post">
+        {% csrf_token %}
+        <input class="form-control form-control-dark w-100 ml-4 mr-4" name="username" type="text" placeholder="Search User" aria-label="Search User">
+      </form>
+      <!-- <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <a class="nav-link" href="#">Sign out</a>
         </li>
-      </ul>
+      </ul> -->
     </nav>
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              {% block sidebar %}
-              {% endblock %}                                                             
-            </ul>
-          </div>
-        </nav>
+    <div class="row">
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          {% block content %}
-          {% endblock %}
-        </main>
+      {% block sidebar %}
+      {% endblock %}
+
+      <div class="col-md-9">
+        {% block contentRow1 %}
+        {% endblock %}
+
+        {% block contentRow2 %}
+        {% endblock %}
       </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

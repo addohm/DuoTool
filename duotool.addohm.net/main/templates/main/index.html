@@ -60,7 +60,7 @@
           <!-- Page navigation of character-->
           <li>
             <span class="sbimiddle">
-              <a href="#{{ dict.index }}" class="pt-0" {% if dict.pinyin %} title="{{ dict.pinyin|default:'' }}" {% endif %}>
+              <a href="#{{ dict.index }}" class="pt-0" {% if dict.pinyin %} title="{{ c|default:'' }} ({{ dict.pinyin|default:'' }}) - {{ dict.definition|default:'' }}" {% endif %}>
                 {{ c|default:"" }}
               </a>
             </span>

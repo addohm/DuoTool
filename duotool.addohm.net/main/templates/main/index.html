@@ -21,34 +21,6 @@
 
 <!-- Side bar -->
 {# block sidebar #}
-<ul class="list-unstyled CTAs">
-    <!-- <li>
-        <a href="" class="download"></a>
-    </li>
-    <li>
-        <a href="" class="article"></a>
-    </li> -->
-
-  {% for c, cd in char.items %}
-    {% for dict in cd %}
-      <li>
-        <a href="#{{ dict.index }}" class="download" title="Subject Helper Text">
-          &nbsp;
-          <!-- {userdata.tts_base_url_http} + '/tts/' + {language_data[i]} -->
-          <i class="fas fa-play-circle" onclick="play('{{ dict.pinyin }}audio')" title="Play Audio Clip"></i>
-          <audio id="{{ dict.pinyin }}audio" src="https://d7mj4aqfscim2.cloudfront.net/tts/zs/jiaoling/token/{{ c }}"></audio>
-          &nbsp;
-          <i class="fas fa-dumbbell" title="Practice"></i>
-          &nbsp;
-          {{ c|default:"" }}{% if dict.pinyin %} - {{ dict.pinyin|default:"" }}{% endif %}
-        </a>
-      </li>
-    {% endfor %}
-  {% endfor %}
-</ul>
-{# endblock #}
-
-{% block sidebar %}
     {% for c, cd in char.items %}
       {% for dict in cd %}
         <ul class="sidebaritem pl-3 pr-3">
@@ -72,6 +44,30 @@
         </ul>
       {% endfor %}
     {% endfor %}
+{# endblock #}
+
+{% block sidebar %}
+    {% for word, dict in char.items %}
+        <ul class="sidebaritem pl-3 pr-3">
+          <!-- Audible representation of character -->
+          <li>
+            <span class="fas fa-play-circle ml-2" onclick="play('{{ dict.pinyin }}audio')" title="Play Audio Clip"></span>
+            <audio id="{{ dict.pinyin }}audio" src="https://d7mj4aqfscim2.cloudfront.net/tts/zs/jiaoling/token/{{ word }}"></audio>
+          </li>
+          <!-- Page navigation of character-->
+          <li>
+            <span class="sbimiddle">
+              <a href="#{{ dict.lesson_id }}" class="pt-0" {% if dict.pinyin %} title="{{ word|default:'' }} ({{ dict.pinyin|default:'' }}) - {{ dict.definition|default:'' }}" {% endif %}>
+                {{ word|default:"" }}
+              </a>
+            </span>
+          </li>
+          <!-- Practice icon -->
+          <li>
+            <span class="fas fa-dumbbell mr-2" title="Practice"></span>
+          </li>
+        </ul>
+    {% endfor %}
 {% endblock %}
 
 <!-- User Metrics -->
@@ -90,22 +86,18 @@
 
 <!-- Main body content -->
 {% block contentRow2 %}
-
   <div>
     <div class="container-fluid" style="border-radius: .25rem">
-    {% for wl, wd in wordlists.items %}
-      {% for dict in wd %}
+      {% for wordlist, dict in wordlists.items %}
         <hr>
-        <p id="{{ dict.index }}" class="lead text-center">
-          {{ wl }}
+        <p id="{{ dict.id }}" class="lead text-center">
+          {{ wordlist }}
         </p>
         <hr>
         {{ dict.explanation|safe }}
       {% endfor %}
-    {% endfor %}
     </div>
   </div>
-
 {% endblock %}
 
 {% block footscripts %}

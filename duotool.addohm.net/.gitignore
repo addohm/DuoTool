@@ -3,7 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-resources
+**/resources
+**json/char.json
+**json/wordlists.json
+**json/vocab.json
+**json/userdata.json
 
 # User-specific files
 *.suo

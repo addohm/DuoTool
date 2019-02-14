@@ -5,6 +5,7 @@
 
 **.env**
 **/resources
+**/pytests
 # **json/char.json
 # **json/wordlists.json
 # **json/vocab.json

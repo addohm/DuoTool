@@ -33,28 +33,30 @@ class Duolingo(object):
         self.leader_data = None
         self.jwt = None
         self._resource_path = os.path.join('/' + '/'.join(os.path.dirname(sys.argv[0]).split('/')[1:-1]), 'static/json')
-        # if password:
-        #     self._login()
 
-        # self.user_data = self.request_userdata()
-        # self.user_vocab = self.request_uservocab()
 
         # use below if testing with runserver
         if not __name__ == '__main__':
+            # Assume module imported by django
             from django.conf import settings
             self._resource_path = os.path.join(settings.BASE_DIR, 'static/json')
-        print('The name is: ' + __name__)
+            if password:
+                self._login()
 
-        _resource_path = self._resource_path
+            self.user_data = self.request_userdata()
+            self.user_vocab = self.request_uservocab()
+        else:
+        # Update global _resource_path variable
+            _resource_path = self._resource_path
 
-        self._user_path = os.path.join(self._resource_path, 'userdata.json')
-        self._vocab_path = os.path.join(self._resource_path, 'uservocab.json')
-        with open(self._user_path, encoding='utf-8') as user_data:
-            self.user_data = json.load(user_data)
-            user_data.close()
-        with open(self._vocab_path, encoding='utf-8') as vocab_data:
-            self.user_vocab = json.load(vocab_data)
-            vocab_data.close()
+            self._user_path = os.path.join(self._resource_path, 'userdata.json')
+            self._vocab_path = os.path.join(self._resource_path, 'uservocab.json')
+            with open(self._user_path, encoding='utf-8') as user_data:
+                self.user_data = json.load(user_data)
+                user_data.close()
+            with open(self._vocab_path, encoding='utf-8') as vocab_data:
+                self.user_vocab = json.load(vocab_data)
+                vocab_data.close()
 
 
     def _login(self):
@@ -322,9 +324,8 @@ class Duolingo(object):
         # All of which have been removed.
         fields = ['username', 'bio', 'id', 'cohort',
                   'language_data', 'learning_language_string',
-                  'created',
-                  'admin', 'location', 'fullname', 'avatar',
-                  'ui_language']
+                  'created', 'admin', 'location', 'fullname',
+                  'avatar', 'ui_language']
 
         return self._make_dict(fields, self.user_data)
 
@@ -336,7 +337,10 @@ class Duolingo(object):
         return self.user_data.certificates
 
     def get_streak_info(self):
-        """Get user's streak informations."""
+        """
+        Get user's streak informations.
+        :returns: dict ``{'daily_goal': int, 'site_streak': int, 'streak_extended_today': bool}``
+        """
         fields = ['daily_goal', 'site_streak', 'streak_extended_today']
         return self._make_dict(fields, self.user_data)
 
@@ -488,57 +492,57 @@ class Duolingo(object):
 
     _tts_voices = None
 
-    def _process_tts_voices(self):
-        voices_js = re.search('duo\.tts_multi_voices = {.+};',
-                              self._homepage).group(0)
-        voices = voices_js[voices_js.find("{"):voices_js.find("}") + 1]
-        self._tts_voices = json.loads(voices)
+    # def _process_tts_voices(self):
+    #     voices_js = re.search('duo\.tts_multi_voices = {.+};',
+    #                           self._homepage).group(0)
+    #     voices = voices_js[voices_js.find("{"):voices_js.find("}") + 1]
+    #     self._tts_voices = json.loads(voices)
 
-    def _get_voice(self, language_abbr, rand=False, voice=None):
-        if not self._tts_voices:
-            self._process_tts_voices()
-        if voice and voice != 'default':
-            return '{}/{}'.format(language_abbr, voice)
-        if rand:
-            return random.choice(self._tts_voices[language_abbr])
-        else:
-            return self._tts_voices[language_abbr][0]
+    # def _get_voice(self, language_abbr, rand=False, voice=None):
+    #     if not self._tts_voices:
+    #         self._process_tts_voices()
+    #     if voice and voice != 'default':
+    #         return '{}/{}'.format(language_abbr, voice)
+    #     if rand:
+    #         return random.choice(self._tts_voices[language_abbr])
+    #     else:
+    #         return self._tts_voices[language_abbr][0]
 
-    def get_language_voices(self, language_abbr=None):
-        if not language_abbr:
-            language_abbr = list(self.user_data.language_data.keys())[0]
-        voices = []
-        if not self._tts_voices:
-            self._process_tts_voices()
-        for voice in self._tts_voices[language_abbr]:
-            if voice == language_abbr:
-                voices.append('default')
-            else:
-                voices.append(voice.replace('{}/'.format(language_abbr), ''))
-        return voices
+    # def get_language_voices(self, language_abbr=None):
+    #     if not language_abbr:
+    #         language_abbr = list(self.user_data.language_data.keys())[0]
+    #     voices = []
+    #     if not self._tts_voices:
+    #         self._process_tts_voices()
+    #     for voice in self._tts_voices[language_abbr]:
+    #         if voice == language_abbr:
+    #             voices.append('default')
+    #         else:
+    #             voices.append(voice.replace('{}/'.format(language_abbr), ''))
+    #     return voices
 
-    def get_audio_url(self, word, language_abbr=None, random=True, voice=None):
-        if not language_abbr:
-            language_abbr = list(self.user_data.language_data.keys())[0]
-        tts_voice = self._get_voice(language_abbr, rand=random, voice=voice)
-        return "{}/tts/{}/token/{}".format(self._cloudfront_server, tts_voice,
-                                           word)
+    # def get_audio_url(self, word, language_abbr=None, random=True, voice=None):
+    #     if not language_abbr:
+    #         language_abbr = list(self.user_data.language_data.keys())[0]
+    #     tts_voice = self._get_voice(language_abbr, rand=random, voice=voice)
+    #     return "{}/tts/{}/token/{}".format(self._cloudfront_server, tts_voice,
+    #                                        word)
 
-    def get_related_words(self, word, language_abbr=None):
-        if not self.password:
-            raise Exception("You must provide a password for this function")
-        if language_abbr and not self._is_current_language(language_abbr):
-            self._switch_language(language_abbr)
+    # def get_related_words(self, word, language_abbr=None):
+    #     if not self.password:
+    #         raise Exception("You must provide a password for this function")
+    #     if language_abbr and not self._is_current_language(language_abbr):
+    #         self._switch_language(language_abbr)
 
-        overview_url = "https://www.duolingo.com/vocabulary/overview"
-        overview_request = self._make_req(overview_url)
-        overview = overview_request.json()
+    #     overview_url = "https://www.duolingo.com/vocabulary/overview"
+    #     overview_request = self._make_req(overview_url)
+    #     overview = overview_request.json()
 
-        for word_data in overview['vocab_overview']:
-            if word_data['normalized_string'] == word:
-                related_lexemes = word_data['related_lexemes']
-                return [w for w in overview['vocab_overview']
-                        if w['lexeme_id'] in related_lexemes]
+    #     for word_data in overview['vocab_overview']:
+    #         if word_data['normalized_string'] == word:
+    #             related_lexemes = word_data['related_lexemes']
+    #             return [w for w in overview['vocab_overview']
+    #                     if w['lexeme_id'] in related_lexemes]
 
     def get_all_languages(self):
         """
@@ -559,17 +563,17 @@ class Duolingo(object):
         """
         return self.user_data['learning_language']
 
-    def get_explanations(self, lang):
+    def _get_explanations(self, language=None):
         """
         Gets the full set of lesson explanations as a dict
         """
-        languages = self.get_current_language()
+        if language is None:
+            language = self.get_current_language()
         explanation = {}
-        for lang in languages:
-            for i in range(len(self.user_data['language_data'][lang]['skills'])):
-                e = self.user_data['language_data'][lang]['skills'][i]['explanation']
-                if e is not None:
-                    explanation[i] = e
+        for i in range(len(self.user_data['language_data'][language]['skills'])):
+            e = self.user_data['language_data'][language]['skills'][i]['explanation']
+            if e is not None:
+                explanation[i] = e
         return explanation
 
     def _check_vocab(self, word):
@@ -622,7 +626,8 @@ class Duolingo(object):
 
     def get_voice_url(self):
         """
-        Gets the first voice name that occurs within the array of explanations
+        Gets the first voice name that occurs within the array of
+        explanations of the currently selected language
 
         :param language: language in it's abbreviated format
         :param explanation: explanation array for lessons
@@ -631,7 +636,7 @@ class Duolingo(object):
         """
         language = self.get_current_language()
 
-        explanation = self.get_explanations(language)
+        explanation = self._get_explanations(language)
 
         # Get the full url from an explanation
         fullurl = self._get_link_references(explanation)
@@ -643,39 +648,62 @@ class Duolingo(object):
         urlbase = self.user_data.get('tts_base_url', None)
 
         # Get the language as a string
-        language = next(iter(language))
+        # language = next(iter(language))
 
         # Format the url
-        url = urlbase + 'tts/' + language + '/' + name + '/'
+        url = urlbase + 'tts/' + language + '/' + name + '/token/'
 
         return url
 
-##################################################################################################
+    def get_lesson_info(self):
+        """
+        Weave the word lists for the currently selected language in with the lesson explanation
+        :return: The full dict of lesson word sets with associated id and explanation
+        :rtype: dict of ``{wordlist: {'id', 'explanation'}}``
+        """
+        wordlistdict = {}
+        userdata = self.get_user_info()
+        lang = self.get_current_language()
+        for item in userdata['language_data'][lang]['skills']:
+            if item.get('levels_finished') > 0:
+                lessonwords = item.get("words")
+                explanation = item.get("explanation")
+                lessonname = item.get("Title")
+                wordlistdict_id = item.get("id")
+                wordlistdict[str(lessonwords)] = {'id': wordlistdict_id, 'name': lessonname, 'explanation': explanation}
+        return wordlistdict
+
+    def get_unique_words(self):
+        """
+        Get list of unique words of the currently selected language
+        :return: set of words
+        :rtype: set of str
+        """
+        # Get current language
+        nowlang = self.get_current_language()
+        # Get sorted list from the current language
+        words = self.get_known_words(nowlang)
+        wordlist = []
+        for item in words:
+            # if it's a single character, store it
+            if len(item) == 1:
+                wordlist.insert(len(wordlist), item)
+            # if it's multiple characters, split them then store it
+            if len(item) > 1:
+                for char in item:
+                    wordlist.insert(len(wordlist), char)
+        # return as a sorted list of unique characters
+        return sorted(set(wordlist), key=len)
+
+    
+############################## Django views.py test functions #############################
 
 def get_hanzi_dict():
-    # json_path = 'DuoTool/duotool.addohm.net/static/json/hanzidb.json'
     json_path = os.path.join(_resource_path, 'hanzidb.json')
     with open(json_path, encoding='utf-8') as json_data:
         hanzidict = json.load(json_data)
     json_data.close()
     return hanzidict
-
-def get_unique_words(lingo):
-    # Get current language
-    nowlang = lingo.get_current_language()
-    # Get sorted list from the current language
-    words = lingo.get_known_words(nowlang)
-    wordlist = []
-    for item in words:
-        # if it's a single character, store it
-        if len(item) == 1:
-            wordlist.insert(len(wordlist), item)
-        # if it's multiple characters, split them then store it
-        if len(item) > 1:
-            for char in item:
-                wordlist.insert(len(wordlist), char)
-    # return as a sorted list of unique characters
-    return sorted(set(wordlist), key=len)
 
 
 def make_word_dict(wordlist, hanzidict=None):
@@ -693,30 +721,15 @@ def make_word_dict(wordlist, hanzidict=None):
         if word in hanzidict:
             pinyin = hanzidict[word][0]['pinyin']
             definition = hanzidict[word][0]['definition']
+            hsklevel = int(hanzidict[word][0]['hsk_level'])
+            frequency = round(((int(hanzidict[word][0]['frequency_rank']) / 10000) - 1) * -100, 1)
         else:
             pinyin = ''
             definition = ''
         word_id += 1
-        worddict[word] = {'id': word_id, 'lesson_id': 0, 'pinyin': pinyin, 'definition': definition}
+        worddict[word] = {'id': word_id, 'lesson_id': 0, 'pinyin': pinyin,
+            'definition': definition, 'hsklevel': hsklevel, 'frequency': frequency}
     return worddict
-
-def make_lession_info(lingo):
-    """
-    Weave the word lists for the currently selected language in with the lesson explanation
-    :lingo dict: The full list of known words cleaned up
-    ``{wordlist: {'id', 'explanation'}}``
-    """
-    wordlistdict = {}
-    wordlistdict_id = 0
-    userdata = lingo.get_user_info()
-    lang = lingo.get_current_language()
-    for item in userdata['language_data'][lang]['skills']:
-        if item.get('levels_finished') > 0:
-            lessonwords = item.get("words")
-            explanation = item.get("explanation")
-            wordlistdict_id += 1
-            wordlistdict[str(lessonwords)] = {'id': wordlistdict_id, 'explanation': explanation}
-    return wordlistdict
 
 def associate_words_lessons(words, lessoninfo):
     """
@@ -732,10 +745,21 @@ def associate_words_lessons(words, lessoninfo):
                 words[word]['lesson_id'] = lessoninfo[lesson]['id']
     return words
 
+def get_test_words(words):
+    wordlist = []
+    while len(wordlist) <= 20:
+        word = random.choice(words)
+        if word not in wordlist:
+            wordlist.append(word)
+    return wordlist
+############################## End Django views.py test functions #############################
+
 attrs = [
     'settings', 'languages', 'user_info', 'certificates', 'streak_info',
     'calendar', 'language_progress', 'friends', 'known_words',
-    'learned_skills', 'known_topics', 'activity_stream', 'vocabulary'
+    'learned_skills', 'known_topics', 'activity_stream', 'vocabulary',
+    'all_languages', 'current_language', 'word_audio_url',
+    'voice_url', 'lesson_info', 'unique_words', 
 ]
 
 for attr in attrs:
@@ -767,10 +791,11 @@ if __name__ == '__main__':
     # lv = duolingo.get_language_voices() # BROKEN at _process_tts_voices
     # au = duolingo.get_audio_url('你') # BROKEN at _process_tts_voices
     # rw = duolingo.get_related_words('你') # ?Returns none?
-    word_list = get_unique_words(lingo)
-    word_dict = make_word_dict(word_list)
-    lessoninfo = make_lession_info(lingo)
-    wordsdict = associate_words_lessons(word_dict, lessoninfo)
+    word_list = lingo.get_unique_words()
+    # word_dict = make_word_dict(word_list)
+    # lessoninfo = lingo.get_lesson_info()
+    # wordsdict = associate_words_lessons(word_dict, lessoninfo)
     # wordsdict = associate_words_lessons(make_word_dict(get_unique_words(lingo)), make_lession_info(lingo))
     # lessoninfo = make_lession_info(lingo)
-    pprint('')
+    testwords = get_test_words(word_list)
+    pprint(testwords)

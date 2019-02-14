@@ -2,49 +2,37 @@
 
 <!-- Extra scripts -->
 {% block headscripts %}
-<script>
-  function play(audioid){
-    var audio = document.getElementById(audioid);
-    audio.play();
-  }
-</script>
+
+{% endblock %}
+
+<!-- Sidebar home submenu -->
+{% block homesubmenu %}
+
 {% endblock %}
 
 <!-- Title bar -->
-{% block titlebar %}
+{% block title %}
   Duolingo - {{ username }}!
 {% endblock %}
 
+{% block userstats %}
+  <li class="nav-item">
+    {% if streakinfo.streak_extended_today %}
+      <font color="green">
+    {% else %}
+      <font color="red">
+    {% endif %}
+    Current streak is {{ streakinfo.site_streak }} days.
+  </font>
+  </li>
+{% endblock %}
+
+
+
+<!-- Side bar -->
 {% block user %}
   {{ username }}
 {% endblock %}
-
-<!-- Side bar -->
-{# block sidebar #}
-    {% for c, cd in char.items %}
-      {% for dict in cd %}
-        <ul class="sidebaritem pl-3 pr-3">
-          <!-- Audible representation of character -->
-          <li>
-            <span class="fas fa-play-circle ml-2" onclick="play('{{ dict.pinyin }}audio')" title="Play Audio Clip"></span>
-            <audio id="{{ dict.pinyin }}audio" src="https://d7mj4aqfscim2.cloudfront.net/tts/zs/jiaoling/token/{{ c }}"></audio>
-          </li>
-          <!-- Page navigation of character-->
-          <li>
-            <span class="sbimiddle">
-              <a href="#{{ dict.index }}" class="pt-0" {% if dict.pinyin %} title="{{ c|default:'' }} ({{ dict.pinyin|default:'' }}) - {{ dict.definition|default:'' }}" {% endif %}>
-                {{ c|default:"" }}
-              </a>
-            </span>
-          </li>
-          <!-- Practice icon -->
-          <li>
-            <span class="fas fa-dumbbell mr-2" title="Practice"></span>
-          </li>
-        </ul>
-      {% endfor %}
-    {% endfor %}
-{# endblock #}
 
 {% block sidebar %}
     {% for word, dict in char.items %}
@@ -52,12 +40,12 @@
           <!-- Audible representation of character -->
           <li>
             <span class="fas fa-play-circle ml-2" onclick="play('{{ dict.pinyin }}audio')" title="Play Audio Clip"></span>
-            <audio id="{{ dict.pinyin }}audio" src="https://d7mj4aqfscim2.cloudfront.net/tts/zs/jiaoling/token/{{ word }}"></audio>
+            <audio id="{{ dict.pinyin }}audio" src="{{ voiceurl }}{{ word }}"></audio>
           </li>
           <!-- Page navigation of character-->
           <li>
             <span class="sbimiddle">
-              <a href="#{{ dict.lesson_id }}" class="pt-0" {% if dict.pinyin %} title="{{ word|default:'' }} ({{ dict.pinyin|default:'' }}) - {{ dict.definition|default:'' }}" {% endif %}>
+              <a href="#{{ dict.lesson_id }}" class="pt-0" {% if dict.pinyin %} title="{{ word|default:'' }} ({{ dict.pinyin|default:'' }}) - {{ dict.definition|default:'' }} (HSK Level: {{ dict.hsklevel|default:'' }}, Frequency: {{ dict.frequency|default:'' }})" {% endif %}>
                 {{ word|default:"" }}
               </a>
             </span>
@@ -70,22 +58,8 @@
     {% endfor %}
 {% endblock %}
 
-<!-- User Metrics -->
-{# block contentRow1 #}
-  <div>&nbsp;</div>
-  <div>&nbsp;</div>
-  <div>&nbsp;</div>
-  <div class="container-fluid bg-light">
-    <!-- Avatar -->
-    <!-- <h1 class="display-4"><p class="text-center">{# username #}</p></h1> -->
-    <!-- User Data Col 1 -->
-    <!-- User Data Col 2 -->
-  </div> 
-
-{# endblock #}
-
 <!-- Main body content -->
-{% block contentRow2 %}
+{% block contentRow %}
   <div>
     <div class="container-fluid" style="border-radius: .25rem">
       {% for wordlist, dict in wordlists.items %}

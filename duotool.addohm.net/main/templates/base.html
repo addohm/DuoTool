@@ -24,6 +24,13 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/duolingo.ico' %}"/>
     
+    <script>
+        function play(audioid){
+            var audio = document.getElementById(audioid);
+            audio.play();
+        }
+    </script>
+
     {% block headscripts %}
 
     {% endblock %}
@@ -36,7 +43,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header text-center">
-                <h3>DuoVocab</h3>
+                <a href="{# url 'home' username=username #}"><h3>DuoVocab</h3></a>
             </div>
 
             <ul class="list-unstyled components">
@@ -44,13 +51,15 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a> <!-- class="dropdown-toggle" -->
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Take Test</a>
+                        {% block homesubmenu %}
+                        {% endblock %}
+                         <li>
+                            <a href="https://www.duolingo.com/practice">Practice</a>
                         </li>
-                        {% comment %} <li>
-                            <a href="#">Home 2</a>
-                        </li>
                         <li>
+                            <a href="{% url 'test' username=username #}">Take Test</a>
+                        </li>
+                        {% comment %}<li>
                             <a href="#">Home 3</a>
                         </li> {% endcomment %}
                     </ul> 
@@ -79,6 +88,12 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
+                            {% block userstats %}
+                            {% endblock %}
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="Duolingo.com"><img src="{% static 'images/duolingo.ico' %}">Duolingo</a>
                             </li>
@@ -93,12 +108,8 @@
                 </div>
             </nav>
 
-        <!-- Space -->
-        {% block contentRow1 %}
-        {% endblock %}
-
         <!-- Main body content -->
-        {% block contentRow2 %}
+        {% block contentRow %}
         {% endblock %}
         <a href="#top" id="back-to-top" class="back-to-top" style="display: inline;">Top</a>          
       </div>

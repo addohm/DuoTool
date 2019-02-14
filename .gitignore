@@ -3,9 +3,14 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-# VSCode Generated Files
-.vscode/
-resources/
+**.env**
+**/resources
+**/pytests
+**/.vscode
+# **json/char.json
+# **json/wordlists.json
+# **json/vocab.json
+# **json/userdata.json
 
 # User-specific files
 *.suo

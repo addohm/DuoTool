@@ -60,7 +60,7 @@ def associate_words_lessons(words, lessoninfo):
 
 def get_test_words(words):
     wordlist = []
-    while len(wordlist) <= 20:
+    while len(wordlist) < 20:
         word = random.choice(words)
         if word not in wordlist:
             wordlist.append(word)
@@ -96,25 +96,6 @@ def home(request, username=None):
 
 def test(request, username='addohm'):
     template_name = 'main/test.html'
-
-    if request.method == 'POST':
-        username = request.POST['username']
-
-    lingo = Duolingo(config('USER'), config('PASS'))
-    streakinfo = lingo.get_streak_info()
-    uniquewords = lingo.get_unique_words()
-    testwords = get_test_words(uniquewords)
-    wordsdict = get_word_dict(testwords)
-    context = {
-        'username': username,
-        'streakinfo': streakinfo,
-        'testwords': testwords,
-        'wordsdict': wordsdict,
-    }
-    return render(request, template_name, context)
-
-def get_test(request, username='addohm'):
-    template_name = 'main/test.html'
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -134,6 +115,7 @@ def get_test(request, username='addohm'):
         testwords = get_test_words(uniquewords)
         wordsdict = get_word_dict(testwords)
         form = TestForm(wordsdict)
+        form.dict_verify()
         context = {
             'username': username,
             'streakinfo': streakinfo,

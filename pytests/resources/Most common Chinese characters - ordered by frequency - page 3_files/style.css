@@ -1,0 +1,28 @@
+body,html{height:110%;}
+body,html,input{font-size:110%;margin:0px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+input{text-align:center;}
+p{text-align:justify;margin:5px 0px;}
+a {text-decoration:none;color:#0033ff;}
+a:hover {text-decoration:underline;}
+#topo {border-bottom:1px dotted #aaaaaa;background:#ddddcc;}
+#topoin a{text-decoration:none;}
+#topoin a b{color:#cc0000;font-size:200%;}
+#topoin, #mido, #boto, #topomo {padding:0px 3px;max-width:800px;margin:0px auto;}
+#topomo {line-height: 130%;}
+#topomo a{color:#000000;background:#bbbb99;padding:0px 3px;white-space: nowrap;}
+#mido {}
+#boto {margin-top:40px;border-top:2px solid #aaaaaa;background:#ddddcc;color:#666666;font-size:70%;}
+span.lesi {color:#999999;font-size:85%;}
+h1 {font-size:220%;margin-bottom:0px;font-weight:normal;}
+p.neha {margin-top:0px;}
+h2 {border-left:5px solid #cc0000;border-bottom:1px solid #cc0000;font-size:120%;font-weight:normal;}
+div.ceent {border-left:1px solid #dddddd;background:#dddddd;padding:3px;margin:3px 0px;}
+ th {background:#dddddd;}
+
+ th, td {
+   border-bottom: 1px solid #cccccc;border-right:  1px solid #cccccc;
+} 
+ p.rigi {text-align:right;}
+ span.smmr {font-size:90%;}
+ p.rigi a{background:#dddddd;padding:1px 3px;border:1px solid #cccccc;}
+ .abo p{border-left:3px solid #cc4444;padding-left:3px;}

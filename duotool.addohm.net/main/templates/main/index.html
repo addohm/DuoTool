@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+<!-- Extra scripts -->
+{% block scripts %}
+<script>
+  function play(audioid){
+    var audio = document.getElementById(audioid);
+    audio.play();
+  }
+</script>
+{% endblock %}
+
+<!-- Title bar -->
+{% block titlebar %}
+  Duolingo - {{ username }}!
+{% endblock %}
+
+<!-- Side bar -->
+{% block sidebar %}
+<div class="col-md-3 bg-light">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <div class="">&nbsp;</div>
+        <div class="">&nbsp;</div>
+        {% for c, cd in char.items %}
+          {% for dict in cd %}
+            <span class="text-justify" data-feather="layers">
+              &nbsp;
+              <!-- {userdata.tts_base_url_http} + '/tts/' + {language_data[i]} -->
+              <i class="fas fa-play-circle" onclick="play('{{ dict.pinyin }}audio')" title="Play Audio Clip"></i>
+              <audio id="{{ dict.pinyin }}audio" src="https://d7mj4aqfscim2.cloudfront.net/tts/zs/jiaoling/token/{{ c }}"></audio>
+              &nbsp;
+              <a href="#" title="Practice">
+                <i class="fas fa-dumbbell"></i>
+              </a>
+              &nbsp;
+              <a href="#{{ dict.index }}" class="text-muted" title="Subject Helper Text">
+                {{ c|default:"" }}{% if dict.pinyin %} - {{ dict.pinyin|default:"" }}{% endif %}
+              </a>
+            </span>
+          {% endfor %}
+        {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+<!-- User Metrics -->
+{% block contentRow1 %}
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+  <div class="container-fluid bg-light">
+    <!-- Avatar -->
+    <!-- <h1 class="display-4"><p class="text-center">{# username #}</p></h1> -->
+    <!-- User Data Col 1 -->
+    <!-- User Data Col 2 -->
+  </div> 
+
+{% endblock %}
+
+<!-- Main body content -->
+{% block contentRow2 %}
+
+  <div>
+    <div class="container-fluid" style="border-radius: .25rem">
+    {% for wl, wd in wordlists.items %}
+      {% for dict in wd %}
+        <hr>
+        <p id="{{ dict.index }}" class="lead text-center">
+          {{ wl }}
+        </p>
+        <hr>
+        {{ dict.explanation|safe }}
+      {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

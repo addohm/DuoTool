@@ -73,5 +73,5 @@ def crawl_hanzidb():
 
 
 crawl_data = crawl_hanzidb()
-with open('hanzidb.json', 'w') as f:
+with open('../resources/hanzidb.json', 'w') as f:
     json.dump(crawl_data, f, indent=2, ensure_ascii=False)

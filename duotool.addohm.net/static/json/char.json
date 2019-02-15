@@ -1,0 +1,1339 @@
+{
+  "要": [
+    {
+      "index": 5,
+      "pinyin": "yào",
+      "definition": "necessary, essential; necessity"
+    }
+  ],
+  "热": [
+    {
+      "index": 5,
+      "pinyin": "rè",
+      "definition": "hot; heat; fever; restless; zeal"
+    }
+  ],
+  "冰": [
+    {
+      "index": 5,
+      "pinyin": "bīng",
+      "definition": "ice; ice-cold"
+    }
+  ],
+  "牛奶": [
+    {
+      "index": 5,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "咖啡": [
+    {
+      "index": 5,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "牛": [
+    {
+      "index": 5,
+      "pinyin": "niú",
+      "definition": "cow, ox, bull; KangXi radical93"
+    }
+  ],
+  "奶": [
+    {
+      "index": 5,
+      "pinyin": "nǎi",
+      "definition": ""
+    }
+  ],
+  "咖": [
+    {
+      "index": 5,
+      "pinyin": "kā",
+      "definition": "coffee; a phonetic"
+    }
+  ],
+  "啡": [
+    {
+      "index": 5,
+      "pinyin": "fēi",
+      "definition": "morphine; coffee"
+    }
+  ],
+  "请问": [
+    {
+      "index": 10,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "知道": [
+    {
+      "index": 10,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "问": [
+    {
+      "index": 10,
+      "pinyin": "wèn",
+      "definition": "ask about, inquire after"
+    }
+  ],
+  "请": [
+    {
+      "index": 10,
+      "pinyin": "qǐng",
+      "definition": "ask, request; invite; please"
+    }
+  ],
+  "知": [
+    {
+      "index": 10,
+      "pinyin": "zhī",
+      "definition": "know, perceive, comprehend"
+    }
+  ],
+  "道": [
+    {
+      "index": 10,
+      "pinyin": "dào",
+      "definition": "path, road, street; method, way"
+    }
+  ],
+  "说": [
+    {
+      "index": 10,
+      "pinyin": "shuō",
+      "definition": "speak, say, talk; scold, upbraid"
+    }
+  ],
+  "英语": [
+    {
+      "index": 10,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "汉语": [
+    {
+      "index": 10,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "汉": [
+    {
+      "index": 10,
+      "pinyin": "hàn",
+      "definition": "Chinese people; Chinese language"
+    }
+  ],
+  "三": [
+    {
+      "index": 19,
+      "pinyin": "sān",
+      "definition": "three"
+    }
+  ],
+  "一": [
+    {
+      "index": 19,
+      "pinyin": "yī",
+      "definition": "one; a, an; alone"
+    }
+  ],
+  "七": [
+    {
+      "index": 19,
+      "pinyin": "qī",
+      "definition": "seven"
+    }
+  ],
+  "八": [
+    {
+      "index": 19,
+      "pinyin": "bā",
+      "definition": "eight; all around, all sides"
+    }
+  ],
+  "十": [
+    {
+      "index": 19,
+      "pinyin": "shí",
+      "definition": "ten, tenth; complete; perfect"
+    }
+  ],
+  "零": [
+    {
+      "index": 19,
+      "pinyin": "líng",
+      "definition": "zero; fragment, fraction"
+    }
+  ],
+  "元": [
+    {
+      "index": 19,
+      "pinyin": "yuán",
+      "definition": "first; dollar; origin; head"
+    }
+  ],
+  "五": [
+    {
+      "index": 19,
+      "pinyin": "wǔ",
+      "definition": "five; surname"
+    }
+  ],
+  "九": [
+    {
+      "index": 19,
+      "pinyin": "jiǔ",
+      "definition": "nine"
+    }
+  ],
+  "百": [
+    {
+      "index": 19,
+      "pinyin": "bǎi",
+      "definition": "one hundred; numerous, many"
+    }
+  ],
+  "是": [
+    {
+      "index": 26,
+      "pinyin": "shì",
+      "definition": "indeed, yes, right; to be; demonstrative pronoun, this, that"
+    }
+  ],
+  "他": [
+    {
+      "index": 26,
+      "pinyin": "tā",
+      "definition": "other, another; he, she, it"
+    }
+  ],
+  "学生": [
+    {
+      "index": 26,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "学": [
+    {
+      "index": 26,
+      "pinyin": "xué",
+      "definition": "learning, knowledge; school"
+    }
+  ],
+  "生": [
+    {
+      "index": 26,
+      "pinyin": "shēng",
+      "definition": "life, living, lifetime; birth"
+    }
+  ],
+  "吗": [
+    {
+      "index": 26,
+      "pinyin": "ma",
+      "definition": "final interrogative particle"
+    }
+  ],
+  "她": [
+    {
+      "index": 26,
+      "pinyin": "tā",
+      "definition": "she, her"
+    }
+  ],
+  "你们": [
+    {
+      "index": 26,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "我们": [
+    {
+      "index": 26,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "他们": [
+    {
+      "index": 26,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "忙": [
+    {
+      "index": 27,
+      "pinyin": "máng",
+      "definition": "busy, pressed for time; hustling"
+    }
+  ],
+  "早上": [
+    {
+      "index": 27,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "早": [
+    {
+      "index": 27,
+      "pinyin": "zǎo",
+      "definition": "early; soon; morning"
+    }
+  ],
+  "上": [
+    {
+      "index": 27,
+      "pinyin": "shàng",
+      "definition": "top; superior, highest; go up, send up"
+    }
+  ],
+  "怎么样": [
+    {
+      "index": 27,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "今天": [
+    {
+      "index": 27,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "怎": [
+    {
+      "index": 27,
+      "pinyin": "zěn",
+      "definition": "what? why? how?"
+    }
+  ],
+  "样": [
+    {
+      "index": 27,
+      "pinyin": "yàng",
+      "definition": "shape, form, pattern, style"
+    }
+  ],
+  "今": [
+    {
+      "index": 27,
+      "pinyin": "jīn",
+      "definition": "now, today, modern era"
+    }
+  ],
+  "天": [
+    {
+      "index": 58,
+      "pinyin": "tiān",
+      "definition": "sky, heaven; god, celestial"
+    }
+  ],
+  "谢谢": [
+    {
+      "index": 29,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "不客气": [
+    {
+      "index": 29,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "谢": [
+    {
+      "index": 29,
+      "pinyin": "xiè",
+      "definition": "thank; decline"
+    }
+  ],
+  "客": [
+    {
+      "index": 29,
+      "pinyin": "kè",
+      "definition": "guest, traveller; customer"
+    }
+  ],
+  "气": [
+    {
+      "index": 29,
+      "pinyin": "qì",
+      "definition": "steam, vapor; KangXi radical 84"
+    }
+  ],
+  "对不起": [
+    {
+      "index": 29,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "没关系": [
+    {
+      "index": 29,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "起": [
+    {
+      "index": 29,
+      "pinyin": "qǐ",
+      "definition": "rise, stand up; go up; begin"
+    }
+  ],
+  "没": [
+    {
+      "index": 29,
+      "pinyin": "méi",
+      "definition": "not, have not, none; drown, sink"
+    }
+  ],
+  "关": [
+    {
+      "index": 29,
+      "pinyin": "guān",
+      "definition": "frontier pass; close; relation"
+    }
+  ],
+  "中国": [
+    {
+      "index": 30,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "人": [
+    {
+      "index": 30,
+      "pinyin": "rén",
+      "definition": "man; people; mankind; someone else"
+    }
+  ],
+  "中": [
+    {
+      "index": 30,
+      "pinyin": "zhōng",
+      "definition": "central; center, middle; in the midst of; hit (target); attain"
+    }
+  ],
+  "国": [
+    {
+      "index": 30,
+      "pinyin": "guó",
+      "definition": "nation, country, nation-state"
+    }
+  ],
+  "哪": [
+    {
+      "index": 30,
+      "pinyin": "nǎ",
+      "definition": "which? where? how?"
+    }
+  ],
+  "英国": [
+    {
+      "index": 30,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "美国": [
+    {
+      "index": 30,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "英": [
+    {
+      "index": 30,
+      "pinyin": "yīng",
+      "definition": "petal, flower, leaf; brave, a hero; England, English"
+    }
+  ],
+  "美": [
+    {
+      "index": 30,
+      "pinyin": "měi",
+      "definition": "beautiful, pretty; pleasing"
+    }
+  ],
+  "都": [
+    {
+      "index": 30,
+      "pinyin": "dōu",
+      "definition": "metropolis, capital; all, the whole; elegant, refined"
+    }
+  ],
+  "洗手间": [
+    {
+      "index": 34,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "医院": [
+    {
+      "index": 34,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "洗": [
+    {
+      "index": 34,
+      "pinyin": "xǐ",
+      "definition": "wash, rinse; clean, purify"
+    }
+  ],
+  "手": [
+    {
+      "index": 34,
+      "pinyin": "shǒu",
+      "definition": "hand"
+    }
+  ],
+  "间": [
+    {
+      "index": 34,
+      "pinyin": "jiān",
+      "definition": "midpoint, space; place, locality"
+    }
+  ],
+  "院": [
+    {
+      "index": 34,
+      "pinyin": "yuàn",
+      "definition": "courtyard, yard, court; school"
+    }
+  ],
+  "这儿": [
+    {
+      "index": 34,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "那儿": [
+    {
+      "index": 34,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "饭馆": [
+    {
+      "index": 34,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "馆": [
+    {
+      "index": 34,
+      "pinyin": "guǎn",
+      "definition": "public building"
+    }
+  ],
+  "漂亮": [
+    {
+      "index": 43,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "高": [
+    {
+      "index": 75,
+      "pinyin": "gāo",
+      "definition": "high, tall; lofty, elevated"
+    }
+  ],
+  "漂": [
+    {
+      "index": 43,
+      "pinyin": "piào",
+      "definition": "float, drift; tossed about"
+    }
+  ],
+  "亮": [
+    {
+      "index": 43,
+      "pinyin": "liàng",
+      "definition": "bright, brilliant, radiant, light"
+    }
+  ],
+  "朋友": [
+    {
+      "index": 43,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "男": [
+    {
+      "index": 43,
+      "pinyin": "nán",
+      "definition": "male, man; son; baron; surname"
+    }
+  ],
+  "矮": [
+    {
+      "index": 43,
+      "pinyin": "ǎi",
+      "definition": "short, dwarf; low"
+    }
+  ],
+  "朋": [
+    {
+      "index": 43,
+      "pinyin": "péng",
+      "definition": "friend, pal, acquaintance"
+    }
+  ],
+  "友": [
+    {
+      "index": 43,
+      "pinyin": "yǒu",
+      "definition": "friend, companion; fraternity"
+    }
+  ],
+  "女": [
+    {
+      "index": 88,
+      "pinyin": "nǚ",
+      "definition": "woman, girl; feminine; rad. 38"
+    }
+  ],
+  "喂": [
+    {
+      "index": 45,
+      "pinyin": "wèi",
+      "definition": "interjection to call attention"
+    }
+  ],
+  "慢": [
+    {
+      "index": 45,
+      "pinyin": "màn",
+      "definition": "slow(ly), leisurely, sluggish"
+    }
+  ],
+  "一点儿": [
+    {
+      "index": 45,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "快": [
+    {
+      "index": 45,
+      "pinyin": "kuài",
+      "definition": "rapid, quick, speedy, fast; soon"
+    }
+  ],
+  "得": [
+    {
+      "index": 45,
+      "pinyin": "dé",
+      "definition": "obtain, get, gain, acquire"
+    }
+  ],
+  "明白": [
+    {
+      "index": 45,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "白": [
+    {
+      "index": 45,
+      "pinyin": "bái",
+      "definition": "white; pure, unblemished; bright"
+    }
+  ],
+  "你": [
+    {
+      "index": 55,
+      "pinyin": "nǐ",
+      "definition": "you, second person pronoun"
+    }
+  ],
+  "好": [
+    {
+      "index": 55,
+      "pinyin": "hǎo",
+      "definition": "good, excellent, fine; well"
+    }
+  ],
+  "再见": [
+    {
+      "index": 55,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "再": [
+    {
+      "index": 55,
+      "pinyin": "zài",
+      "definition": "again, twice, re-"
+    }
+  ],
+  "见": [
+    {
+      "index": 64,
+      "pinyin": "jiàn",
+      "definition": "see, observe, behold; perceive"
+    }
+  ],
+  "的": [
+    {
+      "index": 57,
+      "pinyin": "de",
+      "definition": "possessive, adjectival suffix"
+    }
+  ],
+  "电话": [
+    {
+      "index": 57,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "电": [
+    {
+      "index": 57,
+      "pinyin": "diàn",
+      "definition": "electricity; electric; lightning"
+    }
+  ],
+  "话": [
+    {
+      "index": 57,
+      "pinyin": "huà",
+      "definition": "speech, talk, language; dialect"
+    }
+  ],
+  "号码": [
+    {
+      "index": 57,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "多少": [
+    {
+      "index": 57,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "多": [
+    {
+      "index": 57,
+      "pinyin": "duō",
+      "definition": "much, many; more than, over"
+    }
+  ],
+  "少": [
+    {
+      "index": 57,
+      "pinyin": "shǎo",
+      "definition": "few, less, inadequate"
+    }
+  ],
+  "号": [
+    {
+      "index": 58,
+      "pinyin": "hào",
+      "definition": "mark, sign; symbol; number"
+    }
+  ],
+  "码": [
+    {
+      "index": 57,
+      "pinyin": "mǎ",
+      "definition": "number, numerals; yard; symbol"
+    }
+  ],
+  "年": [
+    {
+      "index": 58,
+      "pinyin": "nián",
+      "definition": ""
+    }
+  ],
+  "月": [
+    {
+      "index": 58,
+      "pinyin": "yuè",
+      "definition": "moon; month; KangXi radical 74"
+    }
+  ],
+  "几": [
+    {
+      "index": 58,
+      "pinyin": "jǐ",
+      "definition": "small table"
+    }
+  ],
+  "〇": [
+    {
+      "index": 58,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "星期": [
+    {
+      "index": 58,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "明天": [
+    {
+      "index": 58,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "日": [
+    {
+      "index": 58,
+      "pinyin": "rì",
+      "definition": "sun; day; daytime"
+    }
+  ],
+  "星": [
+    {
+      "index": 58,
+      "pinyin": "xīng",
+      "definition": "a star, planet; any point of light"
+    }
+  ],
+  "叫": [
+    {
+      "index": 59,
+      "pinyin": "jiào",
+      "definition": "cry, shout; hail, greet, call"
+    }
+  ],
+  "我": [
+    {
+      "index": 59,
+      "pinyin": "wǒ",
+      "definition": "our, us, i, me, my, we"
+    }
+  ],
+  "张": [
+    {
+      "index": 59,
+      "pinyin": "zhāng",
+      "definition": "stretch, extend, expand; sheet"
+    }
+  ],
+  "李": [
+    {
+      "index": 59,
+      "pinyin": "lǐ",
+      "definition": "plum; judge; surname"
+    }
+  ],
+  "华": [
+    {
+      "index": 59,
+      "pinyin": "huá",
+      "definition": "flowery; illustrious; Chinese"
+    }
+  ],
+  "明": [
+    {
+      "index": 59,
+      "pinyin": "míng",
+      "definition": "bright, light, brilliant; clear"
+    }
+  ],
+  "名字": [
+    {
+      "index": 59,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "什么": [
+    {
+      "index": 59,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "名": [
+    {
+      "index": 59,
+      "pinyin": "míng",
+      "definition": "name, rank, title, position"
+    }
+  ],
+  "字": [
+    {
+      "index": 59,
+      "pinyin": "zì",
+      "definition": "letter, character, word"
+    }
+  ],
+  "早安": [
+    {
+      "index": 64,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "晚安": [
+    {
+      "index": 64,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "一会儿": [
+    {
+      "index": 64,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "会": [
+    {
+      "index": 64,
+      "pinyin": "huì",
+      "definition": "assemble, meet together; meeting"
+    }
+  ],
+  "安": [
+    {
+      "index": 64,
+      "pinyin": "ān",
+      "definition": "peaceful, tranquil, quiet"
+    }
+  ],
+  "最近": [
+    {
+      "index": 64,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "好久不见": [
+    {
+      "index": 64,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "不错": [
+    {
+      "index": 64,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "最": [
+    {
+      "index": 64,
+      "pinyin": "zuì",
+      "definition": "most, extremely, exceedingly"
+    }
+  ],
+  "家": [
+    {
+      "index": 65,
+      "pinyin": "jiā",
+      "definition": "house, home, residence; family"
+    }
+  ],
+  "北京": [
+    {
+      "index": 65,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "在": [
+    {
+      "index": 65,
+      "pinyin": "zài",
+      "definition": "be at, in, on; consist in, rest"
+    }
+  ],
+  "北": [
+    {
+      "index": 65,
+      "pinyin": "běi",
+      "definition": "north; northern; northward"
+    }
+  ],
+  "京": [
+    {
+      "index": 65,
+      "pinyin": "jīng",
+      "definition": "capital city"
+    }
+  ],
+  "哪儿": [
+    {
+      "index": 65,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "纽约": [
+    {
+      "index": 65,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "香港": [
+    {
+      "index": 65,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "儿": [
+    {
+      "index": 88,
+      "pinyin": "ér",
+      "definition": "son, child; KangXi radical 10"
+    }
+  ],
+  "纽": [
+    {
+      "index": 65,
+      "pinyin": "niǔ",
+      "definition": "knot; button; handle, knob; tie"
+    }
+  ],
+  "爸爸": [
+    {
+      "index": 70,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "妈妈": [
+    {
+      "index": 70,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "爱": [
+    {
+      "index": 70,
+      "pinyin": "ài",
+      "definition": "love, be fond of, like"
+    }
+  ],
+  "家人": [
+    {
+      "index": 70,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "爸": [
+    {
+      "index": 70,
+      "pinyin": "bà",
+      "definition": "father, papa"
+    }
+  ],
+  "妈": [
+    {
+      "index": 70,
+      "pinyin": "mā",
+      "definition": "mother, mama"
+    }
+  ],
+  "谁": [
+    {
+      "index": 70,
+      "pinyin": "shuí",
+      "definition": "who? whom? whose? anyone?"
+    }
+  ],
+  "那": [
+    {
+      "index": 70,
+      "pinyin": "nà",
+      "definition": "that, that one, those"
+    }
+  ],
+  "个": [
+    {
+      "index": 70,
+      "pinyin": "gè",
+      "definition": "numerary adjunct, piece; single"
+    }
+  ],
+  "这": [
+    {
+      "index": 70,
+      "pinyin": "zhè",
+      "definition": "this, the, here"
+    }
+  ],
+  "很": [
+    {
+      "index": 75,
+      "pinyin": "hěn",
+      "definition": "very, quite, much"
+    }
+  ],
+  "高兴": [
+    {
+      "index": 75,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "兴": [
+    {
+      "index": 75,
+      "pinyin": "xìng",
+      "definition": "thrive, prosper, flourish"
+    }
+  ],
+  "认识": [
+    {
+      "index": 75,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "也": [
+    {
+      "index": 75,
+      "pinyin": "yě",
+      "definition": "also; classical final particle of strong affirmation or identity"
+    }
+  ],
+  "认": [
+    {
+      "index": 75,
+      "pinyin": "rèn",
+      "definition": "recognize, know, understand"
+    }
+  ],
+  "识": [
+    {
+      "index": 75,
+      "pinyin": "shí",
+      "definition": "recognize, understand, know"
+    }
+  ],
+  "上午": [
+    {
+      "index": 77,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "分": [
+    {
+      "index": 77,
+      "pinyin": "fēn",
+      "definition": "divide; small unit of time etc."
+    }
+  ],
+  "下午": [
+    {
+      "index": 77,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "晚上": [
+    {
+      "index": 77,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "午": [
+    {
+      "index": 77,
+      "pinyin": "wǔ",
+      "definition": "noon; 7th terrestrial branch"
+    }
+  ],
+  "晚": [
+    {
+      "index": 77,
+      "pinyin": "wǎn",
+      "definition": "night, evening; late"
+    }
+  ],
+  "下": [
+    {
+      "index": 77,
+      "pinyin": "xià",
+      "definition": "under, underneath, below; down; inferior; bring down"
+    }
+  ],
+  "每": [
+    {
+      "index": 77,
+      "pinyin": "měi",
+      "definition": "every, each"
+    }
+  ],
+  "中午": [
+    {
+      "index": 77,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "周末": [
+    {
+      "index": 77,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "吃": [
+    {
+      "index": 85,
+      "pinyin": "chī",
+      "definition": "eat; drink; suffer, endure, bear"
+    }
+  ],
+  "饭": [
+    {
+      "index": 85,
+      "pinyin": "fàn",
+      "definition": "cooked rice; food, meal"
+    }
+  ],
+  "鱼": [
+    {
+      "index": 85,
+      "pinyin": "yú",
+      "definition": "fish; surname; KangXi radical 195"
+    }
+  ],
+  "面": [
+    {
+      "index": 85,
+      "pinyin": "miàn",
+      "definition": "face; surface; plane; side, dimension"
+    }
+  ],
+  "喝": [
+    {
+      "index": 85,
+      "pinyin": "hē",
+      "definition": "drink; shout, call out"
+    }
+  ],
+  "水": [
+    {
+      "index": 85,
+      "pinyin": "shuǐ",
+      "definition": "water, liquid, lotion, juice"
+    }
+  ],
+  "茶": [
+    {
+      "index": 85,
+      "pinyin": "chá",
+      "definition": "tea"
+    }
+  ],
+  "不": [
+    {
+      "index": 85,
+      "pinyin": "bù",
+      "definition": "no, not; un-; negative prefix"
+    }
+  ],
+  "孩子": [
+    {
+      "index": 88,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "两": [
+    {
+      "index": 88,
+      "pinyin": "liǎng",
+      "definition": "two, both, pair, couple; ounce"
+    }
+  ],
+  "孩": [
+    {
+      "index": 88,
+      "pinyin": "hái",
+      "definition": "baby, child; children"
+    }
+  ],
+  "子": [
+    {
+      "index": 88,
+      "pinyin": "zi",
+      "definition": "offspring, child; fruit, seed of; 1st terrestrial branch"
+    }
+  ],
+  "女儿": [
+    {
+      "index": 88,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "儿子": [
+    {
+      "index": 88,
+      "pinyin": "",
+      "definition": ""
+    }
+  ],
+  "岁": [
+    {
+      "index": 88,
+      "pinyin": "suì",
+      "definition": "year; age; harvest"
+    }
+  ],
+  "妻子": [
+    {
+      "index": 88,
+      "pinyin": "",
+      "definition": ""
+    }
+  ]
+}

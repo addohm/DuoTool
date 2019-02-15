@@ -1,15 +1,17 @@
 import json
 import requests
+import sys, os
+
 
 
 def getUserData(url):
     i = 0
-    char, wordlist, pinyin, explanation = {}, {}, {}, {}
+    char, wordlists = {}, {}
     response = requests.get(url)
     userdata = response.json()
     # Import json for character statistics
     # json_path = os.path.join(settings.BASE_DIR, 'static/json/hanzidb.json')
-    json_path = 'DuoTool/duotool.addohm.net/static/json/hanzidb.json'
+    json_path = os.path.join(os.path.dirname(sys.argv[0]), 'hanzidb.json') # For tests
     with open(json_path, encoding='utf-8') as json_data:
         word_data = json.load(json_data)
         for lang in userdata['language_data']:
@@ -19,9 +21,9 @@ def getUserData(url):
                     explanation = {}
                     explanation['index'] = i
                     lessonwords = item.get("words")
-                    wordlist[str(lessonwords)] = []
+                    wordlists[str(lessonwords)] = []
                     explanation['explanation'] = item.get("explanation")
-                    wordlist[str(lessonwords)].append(explanation)
+                    wordlists[str(lessonwords)].append(explanation)
                     for word in lessonwords:
                         pinyin = {}
                         pinyin['index'] = i
@@ -31,20 +33,23 @@ def getUserData(url):
                             pinyin['pinyin'] = ''
                         char[word] = []
                         char[word].append(pinyin)
-    word.close()
-    return list(zip(wordlists, explanations)), words  # return the value of dictionary from here
+    return char, wordlists
 
 
 def home(request, username='johnny'):
     template_name = 'main/index.html'
+
+    # if request.method == 'POST':
+    #     username = request.POST['username']
+
     url = "https://www.duolingo.com/users/{}".format(username)
-    dictionary, words = getUserData(url)  # catch value of dictionary
+    char, wordlists = getUserData(url)  # catch value of dictionary
     context = {
         'username': username,
-        'dictionary': dictionary,
-        'words': words,
+        'char': char,
+        'wordlists': wordlists,
     }
-    print(context)
+    print(context['username'] + ' contains ' + str(len(context['char'])) + ' chars and ' + str(len(context['wordlists'])) + ' wordlists.')
 
 
 def main():

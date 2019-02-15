@@ -26,14 +26,16 @@ def getUserData(url):
                     explanation['explanation'] = item.get("explanation")
                     wordlists[str(lessonwords)].append(explanation)
                     for word in lessonwords:
-                        pinyin = {}
-                        pinyin['index'] = i
+                        wordinfo = {}
+                        wordinfo['index'] = i
                         if word in word_data:
-                            pinyin['pinyin'] = word_data[word][0]['pinyin']
+                            wordinfo['pinyin'] = word_data[word][0]['pinyin']
+                            wordinfo['definition'] = word_data[word][0]['definition']
                         else:
-                            pinyin['pinyin'] = ''
+                            wordinfo['pinyin'] = ''
+                            wordinfo['definition'] = ''
                         char[word] = []
-                        char[word].append(pinyin)
+                        char[word].append(wordinfo)
     return char, wordlists
 
 

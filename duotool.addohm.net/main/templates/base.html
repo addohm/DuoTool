@@ -43,7 +43,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header text-center">
-                <a href="{# url 'home' username=username #}"><h3>DuoVocab</h3></a>
+                <a href="{% url 'main:home' username %}"><h3>DuoVocab</h3></a>
             </div>
 
             <ul class="list-unstyled components">
@@ -57,7 +57,7 @@
                             <a href="https://www.duolingo.com/practice">Practice</a>
                         </li>
                         <li>
-                            <a href="{# url 'test' username=username #}">Take Test</a>
+                            <a href="{% url 'main:test' username %}">Take Test</a>
                         </li>
                         {% comment %}<li>
                             <a href="#">Home 3</a>

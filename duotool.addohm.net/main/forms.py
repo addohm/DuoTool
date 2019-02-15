@@ -17,7 +17,7 @@ class TestForm(forms.Form):
             self.test_dict = test_dict
             # Save the test_dict
             print('Saving the test dictionary')
-            with open(self._json_path, 'w') as f:
+            with open(self._json_path, 'w', encoding='utf-8') as f:
                 json.dump(test_dict, f, indent=2, ensure_ascii=False)
             answer, wordid, question = self._unpack_dict(test_dict)
         else:

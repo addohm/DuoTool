@@ -445,7 +445,7 @@ class Duolingo(object):
         if not target:
             target = list(self.user_data.language_data.keys())[0]
 
-        word_parameter = json.dumps(words, separators=(',', ':'))
+        word_parameter = json.dumps(words, separators=(',', ':'), ensure_ascii=False)
         url = "https://d2.duolingo.com/api/1/dictionary/hints/{}/{}?tokens={}" \
             .format(target, source, word_parameter)
 

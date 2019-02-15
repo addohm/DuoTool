@@ -1,18 +1,42 @@
 {
-  "兴": {
+  "电": {
     "id": 1,
     "lesson_id": 0,
-    "pinyin": "xìng",
-    "definition": "thrive, prosper, flourish",
+    "pinyin": "diàn",
+    "definition": "electricity; electric; lightning",
     "hsklevel": 1,
-    "frequency": 94.7
+    "frequency": 97.7
   },
-  "面": {
+  "五": {
     "id": 2,
     "lesson_id": 0,
-    "pinyin": "miàn",
-    "definition": "face; surface; plane; side, dimension",
+    "pinyin": "wǔ",
+    "definition": "five; surname",
     "hsklevel": 1,
-    "frequency": 99.3
+    "frequency": 97.2
+  },
+  "天": {
+    "id": 3,
+    "lesson_id": 0,
+    "pinyin": "tiān",
+    "definition": "sky, heaven; god, celestial",
+    "hsklevel": 1,
+    "frequency": 99.2
+  },
+  "她": {
+    "id": 4,
+    "lesson_id": 0,
+    "pinyin": "tā",
+    "definition": "she, her",
+    "hsklevel": 1,
+    "frequency": 99.1
+  },
+  "李": {
+    "id": 5,
+    "lesson_id": 0,
+    "pinyin": "lǐ",
+    "definition": "plum; judge; surname",
+    "hsklevel": 3,
+    "frequency": 95.3
   }
 }

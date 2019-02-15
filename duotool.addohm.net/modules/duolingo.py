@@ -9,7 +9,7 @@ from decouple import Csv, config
 
 __version__ = "0.0"
 __forkauthor__ = "Adam S. Leven"
-__email__ = "addohm@hotmail.com"
+__email__ = "addohm@users.noreply.github.com"
 __url__ = "https://github.com/addohm/Duolingo"
 
 _resource_path = os.path.join('/' + '/'.join(os.path.dirname(sys.argv[0]).split('/')[1:-1]), 'static/json')

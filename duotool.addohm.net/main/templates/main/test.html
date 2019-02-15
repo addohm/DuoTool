@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<!-- Extra scripts -->
+{% block headscripts %}
+
+{% endblock %}
+
+<!-- Sidebar home submenu -->
+{% block homesubmenu %}
+
+{% endblock %}
+
+<!-- Title bar -->
+{% block title %}
+  Duolingo - {{ username }}!
+{% endblock %}
+
+{% block userstats %}
+  <li class="nav-item">
+    {% if streakinfo.streak_extended_today %}
+      <font color="green">
+    {% else %}
+      <font color="red">
+    {% endif %}
+    Current streak is {{ streakinfo.site_streak }} days.
+  </font>
+  </li>
+{% endblock %}
+
+
+
+<!-- Side bar -->
+{% block user %}
+  {{ username }}
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+
+<!-- Main body content -->
+{% block contentRow %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Submit Test</button>
+  </form>
+{% endblock %}
+
+{% block footscripts %}
+
+{% endblock %}

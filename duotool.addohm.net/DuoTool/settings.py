@@ -32,7 +32,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    'main',
     'rest_framework',
     'debug_toolbar',
     'django.contrib.admin',
@@ -41,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'main',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +137,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 50
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

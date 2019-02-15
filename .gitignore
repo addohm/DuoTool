@@ -7,6 +7,7 @@
 **/resources
 **/pytests
 **/.vscode
+**json/answers.json
 # **json/char.json
 # **json/wordlists.json
 # **json/vocab.json

@@ -1,18 +1,18 @@
 {
-  "在": {
+  "兴": {
     "id": 1,
     "lesson_id": 0,
-    "pinyin": "zài",
-    "definition": "be at, in, on; consist in, rest",
+    "pinyin": "xìng",
+    "definition": "thrive, prosper, flourish",
     "hsklevel": 1,
-    "frequency": 99.9
+    "frequency": 94.7
   },
-  "儿": {
+  "面": {
     "id": 2,
     "lesson_id": 0,
-    "pinyin": "ér",
-    "definition": "son, child; KangXi radical 10",
+    "pinyin": "miàn",
+    "definition": "face; surface; plane; side, dimension",
     "hsklevel": 1,
-    "frequency": 98.1
+    "frequency": 99.3
   }
 }

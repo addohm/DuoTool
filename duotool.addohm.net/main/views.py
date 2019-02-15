@@ -62,7 +62,7 @@ def associate_words_lessons(words, lessoninfo):
 
 def get_test_words(words):
     wordlist = []
-    while len(wordlist) < 2:
+    while len(wordlist) < 5:
         word = random.choice(words)
         if word not in wordlist:
             wordlist.append(word)

@@ -35,6 +35,8 @@ def get_word_dict(wordlist, hanzidict=None):
             definition = hanzidict[word][0]['definition']
             hsklevel = int(hanzidict[word][0]['hsk_level'])
             frequency = round(((int(hanzidict[word][0]['frequency_rank']) / 10000) - 1) * -100, 1)
+            if definition == '' or definition is None:
+                continue
         else:
             pinyin = ''
             definition = ''
@@ -60,25 +62,19 @@ def associate_words_lessons(words, lessoninfo):
 
 def get_test_words(words):
     wordlist = []
-    while len(wordlist) < 20:
+    while len(wordlist) < 2:
         word = random.choice(words)
         if word not in wordlist:
             wordlist.append(word)
     return wordlist
 
-def home(request, username=None):
-    # import pdb
-    # pdb.set_trace()
+def home(request, username='addohm', password=None):
     template_name = 'main/index.html'
 
     if request.method == 'POST':
         username = request.POST['username']
 
     lingo = Duolingo(config('USER'), config('PASS'))
-    # with open(os.path.join(settings.BASE_DIR, 'static/json/userdata.json'), 'w') as f:
-    #     json.dump(lingo.user_data, f, indent=2, ensure_ascii=False)
-    # with open(os.path.join(settings.BASE_DIR, 'static/json/vocab.json'), 'w') as f:
-    #     json.dump(lingo.user_vocab, f, indent=2, ensure_ascii=False)
     word_list = lingo.get_unique_words()
     word_dict = get_word_dict(word_list)
     lessoninfo = lingo.get_lesson_info()
@@ -94,33 +90,49 @@ def home(request, username=None):
     }
     return render(request, template_name, context)
 
-def test(request, username='addohm'):
+def test(request, username='addohm', password=None):
+    lingo = Duolingo(config('USER'), config('PASS'))
+    streakinfo = lingo.get_streak_info()
+    context = {
+    'username': username,
+    'streakinfo': streakinfo,
+    }
     template_name = 'main/test.html'
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = TestForm(request.POST)
+        # create a form instance and populate it with data from the saved answer dictionary:
+        print('POSTING TEST RESULTS')
+        form = TestForm(data=request.POST)
         # check whether it's valid:
         if form.is_valid():
+            print('PASSED')
             # process the data in form.cleaned_data as required
-            # ...
+            print('PASSED')
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/success/')
+        else:  
+            print('FAILED')
+            if form.has_error:
+                print('FORM ERROR')
+            pass
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        lingo = Duolingo(config('USER'), config('PASS'))
-        streakinfo = lingo.get_streak_info()
+        print('GETTING NEW TEST')
         uniquewords = lingo.get_unique_words()
         testwords = get_test_words(uniquewords)
         wordsdict = get_word_dict(testwords)
         form = TestForm(wordsdict)
-        form.dict_verify()
-        context = {
-            'username': username,
-            'streakinfo': streakinfo,
-            'wordsdict': wordsdict,
-            'form': form,
-        }
+    context['form'] = form
+    return render(request, template_name, context)
 
+def success(request, username='addohm', password=None):
+    print('SUCCESS FUNCTION')
+    template_name = 'main/success.html'
+    lingo = Duolingo(config('USER'), config('PASS'))
+    streakinfo = lingo.get_streak_info()
+    context = {
+    'username': username,
+    'streakinfo': streakinfo,
+    }
     return render(request, template_name, context)

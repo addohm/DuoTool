@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 <!-- Extra scripts -->
 {% block headscripts %}
@@ -42,22 +42,48 @@
 
 <!-- Main body content -->
 {% block contentRow %}
-  <form method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Submit Test</button>
-  </form> 
-  <button class="btn btn-danger">Reset</button>
-  <button class="btn btn-warning">New Test</button>
-  <select>
-    <option value="">Level 1</option>
-    <option value="">Level 2</option>
-    <option value="">Level 3</option>
-    <option value="">Level 4</option>
-    <option value="">Level 5</option>
-    <option value="">Level 6</option>
-  </select>
+<form method="post" novalidate>
+  {% csrf_token %}
 
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+      {% for error in form.non_field_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+      {% endif %}
+
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}
 
 {% block footscripts %}

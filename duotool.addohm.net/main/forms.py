@@ -1,26 +1,27 @@
 from django import forms
+from pprint import pprint
 
 class TestForm(forms.Form):
     """
     Student test form
-    """
-    word_1 = forms.CharField(label='1', max_length=100)
-    word_2 = forms.CharField(label='2', max_length=100)
-    word_3 = forms.CharField(label='3', max_length=100)
-    word_4 = forms.CharField(label='4', max_length=100)
-    word_5 = forms.CharField(label='5', max_length=100)
-    word_6 = forms.CharField(label='6', max_length=100)
-    word_7 = forms.CharField(label='7', max_length=100)
-    word_8 = forms.CharField(label='8', max_length=100)
-    word_9 = forms.CharField(label='9', max_length=100)
-    word_10 = forms.CharField(label='10', max_length=100)
-    word_11 = forms.CharField(label='11', max_length=100)
-    word_12 = forms.CharField(label='12', max_length=100)
-    word_13 = forms.CharField(label='13', max_length=100)
-    word_14 = forms.CharField(label='14', max_length=100)
-    word_15 = forms.CharField(label='15', max_length=100)
-    word_16 = forms.CharField(label='16', max_length=100)
-    word_17 = forms.CharField(label='17', max_length=100)
-    word_18 = forms.CharField(label='18', max_length=100)
-    word_19 = forms.CharField(label='19', max_length=100)
-    word_20 = forms.CharField(label='20', max_length=100)
+    """    
+    def __init__(self, testdict, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.testdict = {} if testdict is None else testdict
+
+    def dict_verify(self):
+        d = self.testdict
+        print('The dictionary supplied has a length of: ' + str(len(d)))
+        for word in d:
+            # print the base key
+            answer = word
+            for key in d[word]:
+                value = str(d[word][key])
+                if key == 'id':
+                    field_name = value
+                if key == 'definition':
+                    question = value
+                # Print the 2nd level key and value pair
+                pprint(key + ': ' + str(d[word][key]))
+            self.fields[field_name] = forms.CharField(label=question, max_length=100)
+        

@@ -1,42 +1,27 @@
 {
-  "电": {
-    "id": 1,
-    "lesson_id": 0,
-    "pinyin": "diàn",
-    "definition": "electricity; electric; lightning",
-    "hsklevel": 1,
-    "frequency": 97.7
+  "英": {
+    "id": 87453,
+    "pinyin": "ying1",
+    "definition": "United Kingdom British England English abbr. for 英國|英国[Ying1 guo2], hero, outstanding, excellent, (literary) flower, blossom"
   },
-  "五": {
-    "id": 2,
-    "lesson_id": 0,
-    "pinyin": "wǔ",
-    "definition": "five; surname",
-    "hsklevel": 1,
-    "frequency": 97.2
+  "怎么样": {
+    "id": 38686,
+    "pinyin": "zen3 me5 yang4",
+    "definition": "how? how about? how was it? how are things?"
   },
-  "天": {
-    "id": 3,
-    "lesson_id": 0,
-    "pinyin": "tiān",
-    "definition": "sky, heaven; god, celestial",
-    "hsklevel": 1,
-    "frequency": 99.2
+  "好久不见": {
+    "id": 28130,
+    "pinyin": "hao3 jiu3 bu5 jian4",
+    "definition": "long time no see"
   },
-  "她": {
-    "id": 4,
-    "lesson_id": 0,
-    "pinyin": "tā",
-    "definition": "she, her",
-    "hsklevel": 1,
-    "frequency": 99.1
+  "三": {
+    "id": 1006,
+    "pinyin": "san1",
+    "definition": "surname San, three, 3"
   },
-  "李": {
-    "id": 5,
-    "lesson_id": 0,
-    "pinyin": "lǐ",
-    "definition": "plum; judge; surname",
-    "hsklevel": 3,
-    "frequency": 95.3
+  "你们": {
+    "id": 7009,
+    "pinyin": "ni3 men5",
+    "definition": "you (plural)"
   }
 }

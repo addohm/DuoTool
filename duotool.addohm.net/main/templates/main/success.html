@@ -7,7 +7,12 @@
 
 <!-- Sidebar home submenu -->
 {% block homesubmenu %}
-
+  <li>
+    <a href="https://www.duolingo.com/practice">Practice</a>
+  </li>
+  <li>
+    <a href="{% url 'tests:duotest' username %}">Duolingo Vocab Test</a>
+  </li>
 {% endblock %}
 
 <!-- Title bar -->
@@ -42,6 +47,7 @@
 <!-- Main body content -->
 {% block contentRow %}
     <div class="container">
+      <audio id="wrong_answer_audio" src="https://d35aaqx5ub95lt.cloudfront.net/sounds/lesson_complete.mp3"></audio>
       <h1 class="display-4 text-center text-success">You passed!</h1>
       <hr class="my-4">
         <div class="row">

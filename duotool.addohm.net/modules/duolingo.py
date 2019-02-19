@@ -383,13 +383,16 @@ class Duolingo(object):
 
             return data
 
-    def get_known_words(self, lang):
+    def get_known_phrases(self, lang=None):
         """Get a list of all words learned by user in a language."""
+        # Get current language
+        if lang is None:
+            lang = self.get_current_language()
         words = []
         for topic in self.user_data['language_data'][lang]['skills']:
             if topic['learned']:
                 words += topic['words']
-        return set(words)
+        return words
 
     def get_learned_skills(self, lang):
         """
@@ -682,7 +685,7 @@ class Duolingo(object):
         # Get current language
         nowlang = self.get_current_language()
         # Get sorted list from the current language
-        words = self.get_known_words(nowlang)
+        words = self.get_known_phrases(nowlang)
         wordlist = []
         for item in words:
             # if it's a single character, store it
@@ -698,15 +701,35 @@ class Duolingo(object):
     
 ############################## Django views.py test functions #############################
 
-def get_hanzi_dict():
+def get_hanzidb_dict():
+    """
+    Gets and returns the local hanzidb.org database resource
+    """
+    # json_path = 'DuoTool/duotool.addohm.net/static/json/hanzidb.json'
     json_path = os.path.join(_resource_path, 'hanzidb.json')
     with open(json_path, encoding='utf-8') as json_data:
         hanzidict = json.load(json_data)
     json_data.close()
     return hanzidict
 
+def get_hsk_testdict(hsklevel, hanzidict=None):
+    """
+    Gets all the dictionary entries that are at or below a specified hsk level
+    :level 0: The full list of known words cleaned up
+    ``Output``
+    """
+    # self.is_bound = data is not None or files is not None
+    if hanzidict is None:
+        hanzidict = get_hanzidb_dict()
+    hsktestdict = {}
+    for char in hanzidict:
+        for key in hanzidict[char]:
+            value = int(key['hsk_level']) if key['hsk_level'] != '' else 0
+            if value <= hsklevel:
+                hsktestdict[char] = hanzidict[char]
+    return hsktestdict
 
-def make_word_dict(wordlist, hanzidict=None):
+def get_word_dict(wordlist, hanzidict=None):
     """
     Weave the known words in with the dictionary pronounciation and definition
     :wordlist set: The full list of known words cleaned up
@@ -714,7 +737,7 @@ def make_word_dict(wordlist, hanzidict=None):
     ``{word: {'id', 'lesson_id', 'pinyin', 'definition'}}``
     """
     if hanzidict is None:
-        hanzidict = get_hanzi_dict()
+        hanzidict = get_hanzidb_dict()
     worddict = {}
     word_id = 0
     for word in wordlist:
@@ -723,6 +746,8 @@ def make_word_dict(wordlist, hanzidict=None):
             definition = hanzidict[word][0]['definition']
             hsklevel = int(hanzidict[word][0]['hsk_level'])
             frequency = round(((int(hanzidict[word][0]['frequency_rank']) / 10000) - 1) * -100, 1)
+            if definition == '' or definition is None:
+                continue
         else:
             pinyin = ''
             definition = ''
@@ -742,21 +767,32 @@ def associate_words_lessons(words, lessoninfo):
     for word in words:
         for lesson in lessoninfo:
             if word in lesson:
-                words[word]['lesson_id'] = lessoninfo[lesson]['id']
+                words[word].update({'lesson_id': lessoninfo[lesson]['id']})
     return words
 
 def get_test_words(words):
     wordlist = []
-    while len(wordlist) <= 20:
+    while len(wordlist) < 5:
         word = random.choice(words)
         if word not in wordlist:
             wordlist.append(word)
     return wordlist
+
+
+def get_test_dict(worddict):
+    wordlist = list(worddict)
+    testdict = {}
+    while len(testdict) < 5:
+        word = random.choice(wordlist)
+        if word not in testdict:
+            testdict[word] = worddict[word]
+    return testdict
+
 ############################## End Django views.py test functions #############################
 
 attrs = [
     'settings', 'languages', 'user_info', 'certificates', 'streak_info',
-    'calendar', 'language_progress', 'friends', 'known_words',
+    'calendar', 'language_progress', 'friends', 'known_phrases',
     'learned_skills', 'known_topics', 'activity_stream', 'vocabulary',
     'all_languages', 'current_language', 'word_audio_url',
     'voice_url', 'lesson_info', 'unique_words', 
@@ -783,7 +819,7 @@ if __name__ == '__main__':
     # knowntopic = duolingo.get_known_topics('zs')
     # ll = duolingo.get_languages(abbreviations=True)
     # c = duolingo.get_calendar()
-    # w = duolingo.get_known_words('zs')
+    # w = duolingo.get_known_phrases('zs')
     # s = duolingo.get_learned_skills('zs') # BROKEN
     # t = duolingo.get_known_topics('zs')
     # tr = duolingo.get_translations('儿子', 'en', 'zs')
@@ -791,11 +827,13 @@ if __name__ == '__main__':
     # lv = duolingo.get_language_voices() # BROKEN at _process_tts_voices
     # au = duolingo.get_audio_url('你') # BROKEN at _process_tts_voices
     # rw = duolingo.get_related_words('你') # ?Returns none?
-    word_list = lingo.get_unique_words()
+    # word_list = lingo.get_unique_words()
     # word_dict = make_word_dict(word_list)
     # lessoninfo = lingo.get_lesson_info()
     # wordsdict = associate_words_lessons(word_dict, lessoninfo)
     # wordsdict = associate_words_lessons(make_word_dict(get_unique_words(lingo)), make_lession_info(lingo))
     # lessoninfo = make_lession_info(lingo)
-    testwords = get_test_words(word_list)
-    pprint(testwords)
+    # testwords = get_test_words(word_list)
+
+    # hsk_test_list = get_hsk_testdict(1)
+    # pprint(get_test_dict(hsk_test_list))

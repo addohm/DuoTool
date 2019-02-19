@@ -4,11 +4,22 @@ import json
 import random
 from modules.duolingo import Duolingo
 from django.conf import settings
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from decouple import config, Csv
-from pprint import pprint
+from .forms import EnterUserForm
+from .models import DuolingoUsers
 
-from .forms import TestForm
+from rest_framework import viewsets
+from .serializers import PhrasesSerializer
+from .models import HanDictionary as dictionary
+
+class PhraseViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = dictionary.objects.all()
+    serializer_class = PhrasesSerializer
+
 
 def get_hanzi_dict():
     # json_path = 'DuoTool/duotool.addohm.net/static/json/hanzidb.json'
@@ -59,14 +70,18 @@ def associate_words_lessons(words, lessoninfo):
                 words[word].update({'lesson_id': lessoninfo[lesson]['id']})
     return words
 
-
-def get_test_words(words):
-    wordlist = []
-    while len(wordlist) < 5:
-        word = random.choice(words)
-        if word not in wordlist:
-            wordlist.append(word)
-    return wordlist
+def enteruser(request):
+    if request.method == 'POST':
+        form = EnterUserForm(request.POST)
+        formdata = request.POST.dict()
+        username = formdata.get('username')
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            form.save()
+        return redirect('main:home', username=username)
+    else:
+        form = EnterUserForm()
+        return render(request, 'main/enteruser.html', {'form': form})
 
 def home(request, username='addohm', password=None):
     template_name = 'main/index.html'
@@ -88,42 +103,6 @@ def home(request, username='addohm', password=None):
         'voiceurl': voiceurl,
         'streakinfo': streakinfo,
     }
-    return render(request, template_name, context)
-
-def test(request, username='addohm', password=None):
-    lingo = Duolingo(config('USER'), config('PASS'))
-    streakinfo = lingo.get_streak_info()
-    context = {
-    'username': username,
-    'streakinfo': streakinfo,
-    }
-    template_name = 'main/test.html'
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the saved answer dictionary:
-        print('POSTING TEST RESULTS')
-        form = TestForm(data=request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            print('PASSED')
-            # process the data in form.cleaned_data as required
-            print('PASSED')
-            # redirect to a new URL:
-            return HttpResponseRedirect('/success/')
-        else:  
-            print('FAILED')
-            if form.has_error:
-                print('FORM ERROR')
-            pass
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        print('GETTING NEW TEST')
-        uniquewords = lingo.get_unique_words()
-        testwords = get_test_words(uniquewords)
-        wordsdict = get_word_dict(testwords)
-        form = TestForm(wordsdict)
-    context['form'] = form
     return render(request, template_name, context)
 
 def success(request, username='addohm', password=None):

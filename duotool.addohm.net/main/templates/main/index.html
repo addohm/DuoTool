@@ -7,7 +7,12 @@
 
 <!-- Sidebar home submenu -->
 {% block homesubmenu %}
-
+  <li>
+    <a href="https://www.duolingo.com/practice">Practice</a>
+  </li>
+  <li>
+    <a href="{% url 'tests:duotest' username %}">Duolingo Vocab Test</a>
+  </li>
 {% endblock %}
 
 <!-- Title bar -->
